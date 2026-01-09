@@ -28,6 +28,11 @@ async function loadIcon(iconCode) {
     return icon.default;
 }
 
+async function loadAirConditionIcon(iconCode) {
+    const icon = await import(`./images/${iconCode}.svg`);
+    return icon.default;
+}
+
 function renderUpperLeft(reqData){
     const address = createElement("p","address",reqData.address);
     const today = createElement("p","today",format(parseISO(reqData.today),"dd MMMM, eeee"));
@@ -56,21 +61,29 @@ function renderUpperLeft(reqData){
 }
 
 function renderLowerLeft(reqData){
-    const feelsLike = createAirCondition("Feels Like",`${reqData.feelsLike} ${tempunit}`);
-    const windspeed = createAirCondition("Wind Speed",`${reqData.windspeed} ${speedunit}`);
-    const precipProb = createAirCondition("Chace of rain",reqData.precipProb+" %");
-    const humidity = createAirCondition("Humidity",reqData.humidity+" %");
+    const feelsLike = createAirCondition("Feels Like",`${reqData.feelsLike} ${tempunit}`,"feels-like-thermometer");
+    const windspeed = createAirCondition("Wind Speed",`${reqData.windspeed} ${speedunit}`,"wind-speed");
+    const precipProb = createAirCondition("Chace of rain",reqData.precipProb+" %","rain-umbrella");
+    const humidity = createAirCondition("Humidity",reqData.humidity+" %","humidity-drops");
 
     const lowerleft = document.querySelector(".left .lower");
     lowerleft.replaceChildren();
     lowerleft.append(feelsLike,windspeed,precipProb,humidity);
 }
 
-function createAirCondition(parameterName,value){
+function createAirCondition(parameterName,value,iconCode){
     const containerDiv = createElement("div","air-condition","");
-    const name = createElement("p","",parameterName);
-    const val = createElement("p","",value);
-    containerDiv.append(name,val);
+
+    const name = createElement("p","name",parameterName);
+    const val = createElement("p","value",value);
+    const info = createElement("div","air-condition-info");
+    info.append(name, val);
+
+    const icon = createElement("img","air-condition-icon");
+    loadAirConditionIcon(iconCode).then(src=>{
+        icon.src = src;
+    })
+    containerDiv.append(icon,info);
     return containerDiv;
 }
 
