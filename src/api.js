@@ -39,6 +39,7 @@ function getRequiredData(data) {
         conditions: currentConditions.conditions,
         low, high,
         forecast,
+        icon: currentConditions.icon,
     };
 };
 

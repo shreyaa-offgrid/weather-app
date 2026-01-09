@@ -10,7 +10,6 @@ async function init() {
     const reqData = USE_MOCK
         ? mockWeatherData
         : getRequiredData(await requestWeather("Sewagram", "metric"));
-
     render("metric", reqData);
 }
 

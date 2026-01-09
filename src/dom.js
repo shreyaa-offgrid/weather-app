@@ -23,6 +23,11 @@ function setUnits(system){
     }
 }
 
+async function loadIcon(iconCode) {
+    const icon = await import(`./images/icons/${iconCode}.svg`);
+    return icon.default;
+}
+
 function renderUpperLeft(reqData){
     const address = createElement("p","address",reqData.address);
     const today = createElement("p","today",format(parseISO(reqData.today),"dd MMMM, eeee"));
@@ -30,14 +35,21 @@ function renderUpperLeft(reqData){
     const temp = createElement("p","temp",`${reqData.temp} ${tempunit}`);
     const high = createElement("p","high",`${reqData.high} ${tempunit}`);
     const low = createElement("p","low",`${reqData.low} ${tempunit}`);
-    const conditions = createElement("p","conditons",reqData.conditions);
 
     const lowHighFlex = createElement("div","low-high-flex");
     lowHighFlex.append(low,high);
 
+    const conditions = createElement("p","conditons",reqData.conditions);
+    const icon = createElement("img","conditions-icon");
+    loadIcon(reqData.icon).then(src=>{
+        icon.src = src;
+    });
+    const iconFlex = createElement("div","icon-flex");
+    iconFlex.append(conditions,icon);
+    
     const tempFlex = createElement("div","temp-flex");
-    tempFlex.append(temp, lowHighFlex, conditions);
-
+    tempFlex.append(temp, lowHighFlex,iconFlex);
+    
     const upperleft = document.querySelector(".left .upper");
     upperleft.replaceChildren();
     upperleft.append(address, today, tempFlex);
