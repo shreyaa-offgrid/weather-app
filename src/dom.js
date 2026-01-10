@@ -33,8 +33,16 @@ async function loadAirConditionIcon(iconCode) {
     return icon.default;
 }
 
+function toTitleCase(str) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
 function renderUpperLeft(reqData){
-    const address = createElement("p","address",reqData.address);
+    const address = createElement("p","address",toTitleCase(reqData.address));
     const today = createElement("p","today",format(parseISO(reqData.today),"dd MMMM, eeee"));
 
     const temp = createElement("p","temp",`${reqData.temp} ${tempunit}`);
@@ -42,7 +50,7 @@ function renderUpperLeft(reqData){
     const low = createElement("p","low",`${reqData.low} ${tempunit}`);
 
     const lowHighFlex = createElement("div","low-high-flex");
-    lowHighFlex.append(low,high);
+    lowHighFlex.append(high,low);
 
     const conditions = createElement("p","conditons",reqData.conditions);
     const icon = createElement("img","conditions-icon");

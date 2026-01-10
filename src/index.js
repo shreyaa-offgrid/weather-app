@@ -6,10 +6,9 @@ import mockWeatherData from "./mockWeatherData.js";
 const USE_MOCK = true;
 
 async function init() {
-
     const reqData = USE_MOCK
         ? mockWeatherData
-        : getRequiredData(await requestWeather("Sewagram", "metric"));
+        : getRequiredData(await requestWeather("delhi", "metric"));
     render("metric", reqData);
 }
 
