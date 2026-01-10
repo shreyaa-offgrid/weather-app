@@ -44,21 +44,12 @@ function getRequiredData(data) {
 };
 
 function getForeCast(days) {
-
-    let forecast = [];
-    for (let i = 1; i < 8; i++) {
-        let thisDay = days[i];
-        forecast.push({
-            date: thisDay.datetime,
-            high: thisDay.tempmax,
-            low: thisDay.tempmin
-        });
-    }
     return days.slice(1,8).map(day=>({
         date:day.datetime,
         max:day.tempmax,
         min:day.tempmin,
-        conditons: day.conditions,
+        conditions: day.conditions,
+        icon: day.icon
     }));
 }
 

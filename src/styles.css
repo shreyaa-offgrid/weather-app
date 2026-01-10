@@ -127,8 +127,8 @@
 .main-content-container {
   grid-row: 2/3;
   display: grid;
-  grid-template-columns: 2fr 2fr;
-  gap: 6em;
+  grid-template-columns: 2.5fr 2fr;
+  gap: 1em;
 }
 
 .left-container {
@@ -137,7 +137,6 @@
 
 .right-container {
   grid-column: 2/3;
-  border: 1px white solid;
 }
 
 .left {
@@ -146,11 +145,6 @@
   grid-template-rows: 2fr 3fr;
   gap: 1em;
   margin: 0 1em 0 1em;
-}
-
-.right {
-  height: 100%;
-  padding: 1em;
 }
 
 .upper-container {
@@ -191,7 +185,7 @@
 .low-high-flex {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1.5em;
   font-size: 1.2em;
   border-left: 2px white solid;
   padding-left: 0.5em;
@@ -203,7 +197,7 @@
 
 .left .upper .icon-flex{
   display: flex;
-  gap: 0.5em;
+  gap: 1em;
   align-items: center;
 }
 
@@ -212,7 +206,7 @@
 }
 
 .temp-flex .icon-flex img{
-  height: 8em;
+  height: 6em;
 }
 
 .temp-flex .icon-flex p{
@@ -222,24 +216,57 @@
 .left .lower {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 1.7em;
+  margin-top: 1em;
 }
 
 .left .lower .air-condition{
   display: flex;
   gap: 1em;
-  margin: 2em 0 2em 0;
+  margin: 1.5em 0 1.5em 0;
 }
 
 .left .lower .air-condition-icon{
-  height: 4em;
+  height: 3.5em;
 }
 
 .lower .air-condition-info .name{
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .lower .air-condition-info .value{
   font-size: 2em;
+}
+
+.right {
+  margin-bottom: 1em;
+  padding: 1em;
+  color: white;
+  margin-right: 2em;
+  display:flex;
+  flex-direction: column;
+  gap: 0.5em;
+  background-color: #393E46;
+  border-radius: 1em;
+}
+
+
+.right .day-flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  font-size: 1.2em;
+}
+
+.right img{
+  height: 2.5em;
+}
+
+.right .day-condition-flex{
+  width: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
 }
 

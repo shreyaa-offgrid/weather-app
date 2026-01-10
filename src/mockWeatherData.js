@@ -1,58 +1,65 @@
 const mockWeatherData = {
   "address": "Sewagram, Wardha, MH, India",
-  "today": "2026-01-09",
-  "temp": 15,
-  "feelsLike": 15,
-  "humidity": 62.9,
+  "today": "2026-01-10",
+  "temp": 25,
+  "feelsLike": 25,
+  "humidity": 29.5,
   "precipProb": 0,
   "windspeed": 3.6,
-  "conditions": "Clear",
+  "conditions": "Partially cloudy",
   "low": 11,
-  "high": 26,
+  "high": 27.1,
   "forecast": [
     {
-      "date": "2026-01-10",
-      "max": 27.2,
-      "min": 13.4,
-      "conditons": "Partially cloudy"
-    },
-    {
       "date": "2026-01-11",
-      "max": 28.7,
-      "min": 14.5,
-      "conditons": "Clear"
+      "max": 28.4,
+      "min": 14.1,
+      "conditions": "Clear",
+      "icon": "clear-day"
     },
     {
       "date": "2026-01-12",
       "max": 29,
-      "min": 15.2,
-      "conditons": "Clear"
+      "min": 15.6,
+      "conditions": "Clear",
+      "icon": "clear-day"
     },
     {
       "date": "2026-01-13",
       "max": 29.9,
-      "min": 16.6,
-      "conditons": "Clear"
+      "min": 16.9,
+      "conditions": "Clear",
+      "icon": "clear-day"
     },
     {
       "date": "2026-01-14",
-      "max": 29.6,
-      "min": 18.6,
-      "conditons": "Partially cloudy"
+      "max": 30.3,
+      "min": 18.5,
+      "conditions": "Partially cloudy",
+      "icon": "partly-cloudy-day"
     },
     {
       "date": "2026-01-15",
-      "max": 30.7,
-      "min": 18.8,
-      "conditons": "Clear"
+      "max": 30.9,
+      "min": 18.7,
+      "conditions": "Clear",
+      "icon": "clear-day"
     },
     {
       "date": "2026-01-16",
-      "max": 30.1,
-      "min": 16.4,
-      "conditons": "Clear"
+      "max": 30.6,
+      "min": 17.3,
+      "conditions": "Partially cloudy",
+      "icon": "partly-cloudy-day"
+    },
+    {
+      "date": "2026-01-17",
+      "max": 32,
+      "min": 18.2,
+      "conditions": "Clear",
+      "icon": "clear-day"
     }
   ],
-  "icon": "clear-night"
+  "icon": "partly-cloudy-day"
 }
 export default mockWeatherData;

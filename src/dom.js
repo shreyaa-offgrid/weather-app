@@ -87,8 +87,29 @@ function createAirCondition(parameterName,value,iconCode){
     return containerDiv;
 }
 
+function renderForecast(forecast){
+    const right = document.querySelector(".right");
+    right.replaceChildren();
+    for(let i = 0;i<forecast.length;i++){
+        let day = forecast[i];
+        const dayFlex = createElement("div","day-flex");
+        const date = createElement("p","day-date",format(parseISO(day.date), "dd MMM"));
+        const icon = createElement("img","day-icon");
+        loadIcon(day.icon).then(src=>{
+            icon.src = src;
+        });
+        const conditions = createElement("p","day-condition",`${day.conditions}`);
+        const conditionFlex = createElement("div","day-condition-flex");
+        conditionFlex.append(icon,conditions);
+        const minmax = createElement("p","day-minmax",`${day.max} / ${day.min}`);
+        dayFlex.append(date, conditionFlex, minmax);
+        right.appendChild(dayFlex);
+    }
+}
+
 export function render(system, reqData){
     setUnits(system);
     renderUpperLeft(reqData);
     renderLowerLeft(reqData);
+    renderForecast(reqData.forecast);
 }
