@@ -1,17 +1,19 @@
 import "./styles.css";
 import { getRequiredData, requestWeather } from "./api.js";
-import { render, getSearchInput, initSearch, initToggle, getUnitInput } from "./dom.js";
+import { render, getSearchInput, initSearch, initToggle, getUnitInput, loadingAnimation } from "./dom.js";
 import mockWeatherData from "./mockWeatherData.js";
 
 const USE_MOCK = false;
 
 async function init() {
+    loadingAnimation.showModal();
     let location = getSearchInput();
     let unit = getUnitInput();
     const reqData = USE_MOCK
         ? mockWeatherData
         : getRequiredData(await requestWeather(location, unit));
     render(unit, reqData);
+    loadingAnimation.close();
 }
 
 init();

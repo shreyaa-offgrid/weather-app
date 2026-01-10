@@ -44,6 +44,8 @@ function setUnits(system){
     }
 }
 
+export const loadingAnimation = document.querySelector("dialog");
+
 async function loadIcon(iconCode) {
     const icon = await import(`./images/icons/${iconCode}.svg`);
     return icon.default;

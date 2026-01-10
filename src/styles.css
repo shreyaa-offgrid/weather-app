@@ -270,3 +270,42 @@
   gap: 1em;
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
+.loading--full-height {
+  align-items: center;
+  height: 100%;
+}
+
+.loading::after {
+  content: "";
+  width: 4em;
+  height: 4em;
+  border: 1em solid #DFD0B8;
+  border-top-color: #948979;
+  border-radius: 50%;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+dialog.loader {
+  margin: 0;
+  padding: 0;
+  border: none;
+  height: 100vh;
+  width: 100vw;
+  max-width: none;
+  max-height: none;
+  inset: 0;
+  background-color: rgba(114, 126, 145, 0.7);
+  border: none;
+  padding: 0;
+}
