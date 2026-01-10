@@ -206,11 +206,11 @@
 }
 
 .temp-flex .icon-flex img{
-  height: 6em;
+  width: 6em;
 }
 
 .temp-flex .icon-flex p{
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .left .lower {
@@ -259,11 +259,11 @@
 }
 
 .right img{
-  height: 2.5em;
+  width: 3.2em;
 }
 
 .right .day-condition-flex{
-  width: 10vw;
+  width: 15vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;

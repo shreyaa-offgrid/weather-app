@@ -10,6 +10,17 @@ function createElement(type,className,text,){
     }
     return el;
 }
+
+export function getSearchInput(){
+    const searchBar = document.querySelector(".search-bar input");
+    return searchBar.value.trim() || "New Delhi";
+}
+
+export function initSearch(handler) {
+    const newSearchButton = document.querySelector(".search-bar button");
+    newSearchButton.addEventListener("click", handler);
+}
+
 let tempunit = "°C";
 let speedunit = "km/h";
 
@@ -52,7 +63,7 @@ function renderUpperLeft(reqData){
     const lowHighFlex = createElement("div","low-high-flex");
     lowHighFlex.append(high,low);
 
-    const conditions = createElement("p","conditons",reqData.conditions);
+    const conditions = createElement("p","conditions",reqData.conditions);
     const icon = createElement("img","conditions-icon");
     loadIcon(reqData.icon).then(src=>{
         icon.src = src;
