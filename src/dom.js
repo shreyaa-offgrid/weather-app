@@ -16,9 +16,19 @@ export function getSearchInput(){
     return searchBar.value.trim() || "New Delhi";
 }
 
-export function initSearch(handler) {
+export function initSearch(searchHandler) {
     const newSearchButton = document.querySelector(".search-bar button");
-    newSearchButton.addEventListener("click", handler);
+    newSearchButton.addEventListener("click", searchHandler);
+}
+
+export function initToggle(toggleHandler){
+    const toggleButton = document.querySelector(".switch input");
+    toggleButton.addEventListener("click",toggleHandler);
+}
+
+export function getUnitInput(){
+    const toggleButton = document.querySelector(".switch input");
+    return toggleButton.checked? "us": "metric";
 }
 
 let tempunit = "°C";
