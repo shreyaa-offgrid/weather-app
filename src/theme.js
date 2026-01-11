@@ -9,7 +9,7 @@ export async function getGif(searchTerm) {
     const response = await fetch(url);
     const data = await response.json();
 
-    const gifUrl = data.data[0].images.original.url;
+    const gifUrl = data.data[0]?.images?.original?.url;
     if (!gifUrl) {
         throw new Error("No GIF found for that search");
     }

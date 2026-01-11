@@ -20,11 +20,18 @@ export function getSearchInput(){
 export function initSearch(searchHandler) {
     const newSearchButton = document.querySelector(".search-bar button");
     newSearchButton.addEventListener("click", searchHandler);
+
+    const newSearchInput = document.querySelector(".search-bar input");
+    newSearchInput.addEventListener("keydown",(event)=>{
+        if(event.key === "Enter"){
+            searchHandler();
+        }
+    });
 }
 
 export function initToggle(toggleHandler){
     const toggleButton = document.querySelector(".switch input");
-    toggleButton.addEventListener("click",toggleHandler);
+    toggleButton.addEventListener("change",toggleHandler);
 }
 
 export function getUnitInput(){

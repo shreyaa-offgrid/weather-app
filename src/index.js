@@ -7,13 +7,16 @@ const USE_MOCK = false;
 
 async function init() {
     loadingAnimation.showModal();
-    let location = getSearchInput();
-    let unit = getUnitInput();
-    const reqData = USE_MOCK
-        ? mockWeatherData
-        : getRequiredData(await requestWeather(location, unit));
-    render(unit, reqData);
-    loadingAnimation.close();
+    try {
+        let location = getSearchInput();
+        let unit = getUnitInput();
+        const reqData = USE_MOCK
+            ? mockWeatherData
+            : getRequiredData(await requestWeather(location, unit));
+        render(unit, reqData);
+    } finally {
+        loadingAnimation.close();
+    }
 }
 
 init();
