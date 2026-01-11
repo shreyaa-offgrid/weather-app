@@ -1,4 +1,5 @@
 import { format, parseISO} from "date-fns"
+import { getGif } from "./theme.js";
 
 function createElement(type,className,text,){
     let el = document.createElement(type);
@@ -138,9 +139,15 @@ function renderForecast(forecast){
     }
 }
 
+async function setBackgroundImg(searchTerm){
+    const gridContainer = document.querySelector(".grid-container");
+    gridContainer.style.backgroundImage = `url(${await getGif(searchTerm)})`;
+}
+
 export function render(system, reqData){
     setUnits(system);
     renderUpperLeft(reqData);
     renderLowerLeft(reqData);
     renderForecast(reqData.forecast);
+    setBackgroundImg(reqData.conditions);
 }

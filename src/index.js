@@ -1,5 +1,5 @@
 import "./styles.css";
-import { getRequiredData, requestWeather } from "./api.js";
+import { getRequiredData, requestWeather } from "./weatherAPI.js";
 import { render, getSearchInput, initSearch, initToggle, getUnitInput, loadingAnimation } from "./dom.js";
 import mockWeatherData from "./mockWeatherData.js";
 

@@ -20,7 +20,7 @@
   height: 100vh;
   display: grid;
   grid-template-rows: 1fr 7fr;
-  background-image: url("./images/night-sky.jpeg");
+  background-color: #222831;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
